@@ -14,10 +14,10 @@ const IconPlush = ({
   return (
     <Box
       sx={{
-        ...sx,
         width: width,
         height: height,
         opacity: opacity,
+        ...sx,
       }}
       component={"svg"}
       width="17"

@@ -2,6 +2,7 @@ import { Box, Grid, Stack, useMediaQuery } from "@mui/material";
 import styled from "styled-components";
 import imageSectionOne from "./assets/graphic-desktop.png";
 import basketball from "./assets/graphic-desktop2.png";
+
 import {
   DataOfSection,
   SectionComponentPropType,
@@ -9,7 +10,8 @@ import {
 } from "./types/App.type";
 import { dataSectionOne, dataSectionTwo } from "./constant/sectionData";
 import { useEffect, useState } from "react";
-// import IconPlush from "./components/IconPlush";
+import IconPlush from "./components/IconPlush";
+import IconLine from "./components/IconLIne";
 
 const App = () => {
   return (
@@ -52,6 +54,7 @@ const SectionComponent = ({
   sx,
 }: SectionComponentPropType) => {
   const SMBreakPoint = useMediaQuery("(max-width:600px)");
+  const CustomBreakPoint = useMediaQuery("(max-width:768px)");
 
   return (
     <Box sx={{ position: "relative", ...sx }} id={`section-component`}>
@@ -71,23 +74,93 @@ const SectionComponent = ({
           }}
         >
           <Box
-            component={"img"}
-            id={`image-character-${header}`}
+            component={"div"}
             sx={{
-              zIndex: 1,
-              position: {
-                xs: "relative",
-                sm: "absolute",
-              },
-              ...(sideSwap
-                ? { marginRight: "125px", right: 0, top: "-70px" }
-                : { marginTop: "35px", marginLeft: "175px" }),
-              flexShrink: 0,
+              position: "relative",
+              display: "flex",
+              justifyContent: "center",
+              alignContent: "center",
             }}
-            src={image}
-          ></Box>
-          {/* <IconPlush />
-          <IconPlush opacity={0.3} /> */}
+          >
+            <Box
+              component={"img"}
+              id={`image-character-${header}`}
+              sx={{
+                zIndex: 1,
+                position: {
+                  xs: "relative",
+                  sm: "absolute",
+                },
+                ...(sideSwap
+                  ? { marginRight: "125px", right: 0, top: "-70px" }
+                  : { marginTop: "35px", marginLeft: "175px" }),
+                flexShrink: 0,
+              }}
+              src={image}
+            ></Box>
+
+            {CustomBreakPoint && !sideSwap ? (
+              <>
+                <IconPlush
+                  sx={{
+                    position: "absolute",
+                    marginRight: 20,
+                    width: 20,
+                    height: 20,
+                    left: {
+                      xs: "auto",
+                      sm: 59.51,
+                    },
+                    top: {
+                      xs: 50,
+                      sm: 30,
+                    },
+                  }}
+                />
+                <IconPlush
+                  sx={{
+                    position: "absolute",
+                    top: {
+                      xs: 40,
+                      sm: 20,
+                    },
+                    width: 20,
+                    height: 20,
+                    marginRight: 25,
+                    left: {
+                      xs: "auto",
+                      sm: 30.63,
+                    },
+                  }}
+                  opacity={0.3}
+                />
+                <IconLine
+                  sx={{
+                    position: "absolute",
+                    marginRight: 3,
+                    left: {
+                      xs: "auto",
+                      sm: 50,
+                    },
+                    top: {
+                      xs: 40,
+                      sm: 50,
+                    },
+                    width: {
+                      xs: "180px",
+                      sm: `217.697px`,
+                    },
+                    height: {
+                      xs: "220px",
+                      sm: `233.717px`,
+                    },
+                  }}
+                />
+              </>
+            ) : (
+              <></>
+            )}
+          </Box>
         </Grid>
         <Grid
           item
@@ -134,6 +207,59 @@ const SectionComponent = ({
         )}
       </Grid>
     </Box>
+  );
+};
+
+const SectionContent = ({ sectionData }: SectionContentPropType) => {
+  return (
+    <Stack
+      id={`text-content-box`}
+      sx={{
+        minHeight: "255px",
+        height: "13vh",
+        display: { xs: "block", sm: "flex" },
+        justifyContent: { xs: "flex-start", sm: "center" },
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <Stack
+          sx={{
+            width: "fit-content",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+          mr={1}
+        >
+          <TextNo $textColor={sectionData?.numberColor || "#000000"}>
+            {sectionData?.number || ""}
+          </TextNo>
+          <Box
+            sx={{
+              height: 5,
+              minWidth: 19,
+              bgcolor: {
+                xs: "#603EBE",
+                md: `${sectionData?.headerColor || "#603EBE"}`,
+              },
+              borderRadius: 2.5,
+              marginTop: 1,
+            }}
+          ></Box>
+        </Stack>
+        <TextHeaderMid $textColor="#c2c2c2">
+          {sectionData?.header || ""}
+        </TextHeaderMid>
+      </Box>
+      <TextContent $textColor={sectionData?.textColor || "#000000"}>
+        {sectionData?.content || ""}
+      </TextContent>
+    </Stack>
   );
 };
 
@@ -240,59 +366,6 @@ const Carousel = ({
         </Box>
       </Stack>
     </Grid>
-  );
-};
-
-const SectionContent = ({ sectionData }: SectionContentPropType) => {
-  return (
-    <Stack
-      id={`text-content-box`}
-      sx={{
-        minHeight: "255px",
-        height: "13vh",
-        display: { xs: "block", md: "flex" },
-        justifyContent: { xs: "center", md: "flex-start" },
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <Stack
-          sx={{
-            width: "fit-content",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-          mr={1}
-        >
-          <TextNo $textColor={sectionData?.numberColor || "#000000"}>
-            {sectionData?.number || ""}
-          </TextNo>
-          <Box
-            sx={{
-              height: 5,
-              minWidth: 19,
-              bgcolor: {
-                xs: "#603EBE",
-                md: `${sectionData?.headerColor || "#603EBE"}`,
-              },
-              borderRadius: 2.5,
-              marginTop: 1,
-            }}
-          ></Box>
-        </Stack>
-        <TextHeaderMid $textColor="#c2c2c2">
-          {sectionData?.header || ""}
-        </TextHeaderMid>
-      </Box>
-      <TextContent $textColor={sectionData?.textColor || "#000000"}>
-        {sectionData?.content || ""}
-      </TextContent>
-    </Stack>
   );
 };
 

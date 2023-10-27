@@ -75,6 +75,12 @@ body {
   }
 }
 
+@media only screen and (max-width: 732px) {
+  #image-character-PLAYERS {
+    right: -300px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   #content-box {
     padding-left: 30px;
