@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 1710px) {
+  #content-box {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+  #tex-main-header {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+  #tex-main-header-side-swap {
+    padding-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 1582px) {
+  #content-box {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  #tex-main-header {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  #image-character-ATHLETS {
+    width: 600px;
+    margin-left: 130px;
+  }
+  #image-character-PLAYERS {
+    width: 800px;
+    top: 0px;
+  }
+}
+@media only screen and (max-width: 1330px) {
+  #image-character-ATHLETS {
+    margin-left: 50px;
+  }
+  #image-character-PLAYERS {
+    margin-right: 50px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  #content-box {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+  #tex-main-header {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+  #image-character-ATHLETS {
+    width: 518px;
+    margin-left: 0px;
+    left: -60px;
+  }
+  #image-character-PLAYERS {
+    width: 691px;
+    margin-right: 0;
+    right: -60px;
+  }
+}
+
+@media only screen and (max-width: 951px) {
+  #image-character-ATHLETS {
+    left: -115px;
+  }
+  #image-character-PLAYERS {
+    right: -250px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #content-box {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  #tex-main-header {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  #image-character-ATHLETS {
+    left: -165px;
+  }
+  #text-content-box {
+    min-height: 207px;
+    height: 14vh;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #content-box {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  #tex-main-header {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  #tex-main-header-side-swap {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  #image-character-ATHLETS {
+    left: 0;
+    width: 200px;
+    margin-top: 0;
+    top: 40px;
+  }
+  #image-character-PLAYERS {
+    right: 0;
+    width: 302px;
+    top: 40px;
+  }
+  #text-content-box {
+    min-height: 180px;
+    height: fit-content;
+  }
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
