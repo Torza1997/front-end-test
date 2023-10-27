@@ -4,8 +4,8 @@
 
 1. run command "yarn install" or npm install
 
-// I recommend use yarn install
-// link download yarn https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable
+<!-- I recommend use yarn install -->
+<!-- link download yarn https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable -->
 
 2. yarn dev
 3. open link "http://localhost:5173/"
